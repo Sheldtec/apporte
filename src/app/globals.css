@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Enable dark mode via class */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: 0 0% 100%;
   --foreground: 220 20% 10%;
@@ -10,8 +13,8 @@
   /* Primary: #FFB11D - Golden/Orange */
   --primary: 42 100% 55%;
   --primary-foreground: 0 0% 0%;
-  /* Secondary: #0CC40F - Green */
-  --secondary: 121 88% 41%;
+  /* Secondary: #044D22 - Green */
+  --secondary: 152 88% 15%;
   --secondary-foreground: 0 0% 100%;
   --muted: 220 14% 96%;
   --muted-foreground: 220 10% 40%;
@@ -23,12 +26,65 @@
   --input: 220 13% 91%;
   --ring: 42 100% 55%;
   --radius: 0.75rem;
-  --success: 121 88% 41%;
+  --success: 152 88% 15%;
   --warning: 45 93.4% 47.5%;
   
   /* Font families */
   --font-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+/* Dark mode - Deep green-tinted theme based on #044D22 */
+.dark {
+  --background: 152 40% 5%;
+  --foreground: 150 10% 85%;
+  --card: 152 35% 7%;
+  --card-foreground: 150 10% 85%;
+  --popover: 152 35% 7%;
+  --popover-foreground: 150 10% 85%;
+  --primary: 42 100% 55%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 152 30% 15%;
+  --secondary-foreground: 150 10% 90%;
+  --muted: 152 25% 10%;
+  --muted-foreground: 150 10% 50%;
+  --accent: 42 100% 55%;
+  --accent-foreground: 0 0% 0%;
+  --destructive: 0 62% 50%;
+  --destructive-foreground: 0 0% 100%;
+  /* Very subtle border - low opacity greenish gray */
+  --border: 152 20% 18%;
+  --input: 152 25% 12%;
+  --ring: 42 100% 55%;
+  color-scheme: dark;
+}
+
+/* Dark mode body */
+.dark body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: hsl(152 30% 8%);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: hsl(152 20% 20%);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: hsl(152 20% 28%);
+}
+
+/* Dark mode card overrides */
+.dark .card-elevated {
+  background: hsl(var(--card));
+  border-color: hsl(var(--border));
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.3),
+    0 10px 15px -3px rgba(0, 0, 0, 0.4);
 }
 
 * {
